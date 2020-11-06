@@ -10,9 +10,9 @@ export const routes = [
 	{
 		path: '/#contact',
 		label: 'Contact'
-	}
-	/* {
+	},
+	{
 		path: '/portfolio',
 		label: 'Portfolio'
-	} */
+	}
 ];
