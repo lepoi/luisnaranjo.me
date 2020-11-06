@@ -1,0 +1,154 @@
+// font setup
+@import './fonts.scss';
+
+// var setup
+@import './variables.scss';
+
+// config mixin allows modular configuration of breakpoints
+@mixin config() {
+	// configuration to run only once
+	@include _config();
+
+	// append '-' to preffix ('xs' => 'xs-')
+	@each $bk, $cur in $breakpoints {
+		$min: map-get($cur, min);
+		$max: map-get($cur, max);
+
+		@if ($min and $max) {
+			@media screen and (min-width: $min) and (max-width: $max) {
+				@include _config('#{$bk}-');
+			}
+		} @else if ($min and not $max) {
+			@media screen and (min-width: $min) {
+				@include _config('#{$bk}-');
+			}
+		} @else if (not $min and $max) {
+			@media screen and (max-width: $max) {
+				@include _config('#{$bk}-');
+			}
+		}
+	}
+}
+
+@mixin _config($prefix: '') {
+	// layout
+	.#{$prefix}container {
+		display: flex;
+		display: -ms-flexbox;
+		flex-direction: column;
+		-ms-flex-direction: column;
+		width: 100%;
+		max-width: 1640px;
+		margin-left: auto;
+		margin-right: auto;
+
+		&.full {
+			max-width: unset;
+			margin-left: unset;
+			margin-right: unset;
+		}
+	}
+
+	.#{$prefix}row {
+		display: flex;
+		display: -ms-flexbox;
+		flex-direction: row;
+		-ms-flex-direction: row;
+	}
+
+	.#{$prefix}col {
+		flex: 1 1;
+		max-width: 100%;
+	}
+
+	@for $c from 1 through 12 {
+		.#{$prefix}col-#{$c} {
+			flex: #{$c * 100% / 12};
+			max-width: #{$c * 100% / 12};
+		}
+	}
+
+	// font size
+	@each $name, $size in $font-sizes {
+		.#{$prefix}fs-#{$name} {
+			font-size: $size;
+		}
+	}
+
+	// utilities
+	.#{$prefix}hidden {
+		display: none;
+	}
+
+	.#{$prefix}c-1 {
+		color: $color-1;
+	}
+	.#{$prefix}c-2 {
+		color: $color-2;
+	}
+	.#{$prefix}c-3 {
+		color: $color-3;
+	}
+	.#{$prefix}c-4 {
+		color: $color-4;
+	}
+	.#{$prefix}c-lt {
+		color: $light;
+	}
+	.#{$prefix}c-dk {
+		color: $dark;
+	}
+
+	.#{$prefix}bgc-1 {
+		background-color: $color-1;
+	}
+	.#{$prefix}bgc-2 {
+		background-color: $color-2;
+	}
+	.#{$prefix}bgc-3 {
+		background-color: $color-3;
+	}
+	.#{$prefix}bgc-4 {
+		background-color: $color-4;
+	}
+	.#{$prefix}bgc-lt {
+		background-color: $light;
+	}
+	.#{$prefix}bgc-dk {
+		background-color: $dark;
+	}
+
+	@for $val from 1 to 11 {
+		.#{$prefix}p-#{$val} {
+			padding: #{$val * 5 + 'px'};
+		}
+		.#{$prefix}pt-#{$val} {
+			padding-top: #{$val * 5 + 'px'};
+		}
+		.#{$prefix}pb-#{$val} {
+			padding-bottom: #{$val * 5 + 'px'};
+		}
+		.#{$prefix}pl-#{$val} {
+			padding-left: #{$val * 5 + 'px'};
+		}
+		.#{$prefix}pr-#{$val} {
+			padding-right: #{$val * 5 + 'px'};
+		}
+
+		.#{$prefix}m-#{$val} {
+			margin: #{$val * 5 + 'px'};
+		}
+		.#{$prefix}mt-#{$val} {
+			margin-top: #{$val * 5 + 'px'};
+		}
+		.#{$prefix}mb-#{$val} {
+			margin-bottom: #{$val * 5 + 'px'};
+		}
+		.#{$prefix}ml-#{$val} {
+			margin-left: #{$val * 5 + 'px'};
+		}
+		.#{$prefix}mr-#{$val} {
+			margin-right: #{$val * 5 + 'px'};
+		}
+	}
+}

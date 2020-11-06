@@ -1,0 +1,7 @@
+@import './config.scss';
+
+// style config
+@include config();
+
+// global styles
+@import './global.scss';

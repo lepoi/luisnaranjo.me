@@ -1,0 +1,48 @@
+@import './variables.scss';
+@import './utils/transition.scss';
+
+.navbar-wrapper {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+
+	&.sticky {
+		position: sticky;
+	}
+
+	&.docked {
+		top: unset;
+		bottom: 0;
+
+		& > .navbar > .nav-links {
+			justify-content: center;
+		}
+	}
+
+	&.transparent {
+		background-color: unset;
+	}
+
+	& > .navbar {
+		& > .nav-links {
+			justify-content: flex-end;
+
+			& > .nav-link {
+				display: block;
+				color: $light;
+
+				&.active {
+					& > .nav-link-inner:after {
+						width: 100%;
+					}
+				}
+
+				& > .nav-link-inner:after {
+					height: 2px;
+					background-color: $light;
+				}
+			}
+		}
+	}
+}
