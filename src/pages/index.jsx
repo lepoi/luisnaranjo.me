@@ -116,12 +116,14 @@ export default ({ location }) => {
 				<SEO
 					path={location.pathname}
 					title={`${
-						hash
+						anchors.indexOf(hash) !== -1
 							? hash.charAt(0).toUpperCase() +
 							  hash.slice(1).toLowerCase()
 							: title
 					}`}
-					titleTemplate={hash ? undefined : `%s`}
+					titleTemplate={
+						anchors.indexOf(hash) !== -1 ? undefined : `%s`
+					}
 				/>
 
 				<canvas id="home-particles"></canvas>
