@@ -48,8 +48,8 @@ const slides = {
 					it front or back end.
 					<br />
 					Have a look at my
-					<Link to="/portfolio"> projects </Link>, something might
-					catch your eye!
+					{/* <Link to="/portfolio"> projects </Link> */}projects,
+					something might catch your eye!
 				</p>
 			</div>
 		</div>
@@ -59,7 +59,7 @@ const slides = {
 		<div className="home-info">
 			<div className="home-contact">
 				<p className="mb-4">
-					Don't hesitate to contact me though any of these:
+					Don't hesitate to contact me through any of these:
 				</p>
 				<div className="contact-container">
 					<a
@@ -129,7 +129,6 @@ export default ({ location }) => {
 				<canvas id="home-particles"></canvas>
 
 				<Fullpage
-					// TODO: license
 					licenseKey=""
 					navigation
 					menu="#nav-menu"
