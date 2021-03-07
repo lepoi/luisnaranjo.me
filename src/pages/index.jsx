@@ -44,11 +44,12 @@ const slides = {
 				<p>
 					I enjoy analyzing complex problems, but also designing and
 					implementing solutions.
-					<br />I am very experienced in modern Web technologies, be
-					it front or back end.
+					<br />
+					I am very experienced in modern Web technologies, be it
+					front or back end.
 					<br />
 					Have a look at my
-					{/* <Link to="/portfolio"> projects </Link> */}projects,
+					<Link to="https://github.com/lepoi"> projects </Link>,
 					something might catch your eye!
 				</p>
 			</div>
@@ -63,11 +64,11 @@ const slides = {
 				</p>
 				<div className="contact-container">
 					<a
-						href="mailto:contact@luisnaranjo.me?subject=Hello!&body=Hi Luis!"
+						href="mailto:luis.naranjo@cetys.edu.mx?subject=Hello!&body=Hi Luis!"
 						className="contact-item"
 					>
 						<i class="fas fa-envelope"></i>
-						contact@luisnaranjo.me
+						luis.naranjo@cetys.edu.mx
 					</a>
 					<a href="https://github.com/lepoi" className="contact-item">
 						<i class="fab fa-github"></i>
