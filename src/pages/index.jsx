@@ -129,7 +129,7 @@ export default ({ location }) => {
 				<canvas id="home-particles"></canvas>
 
 				<Fullpage
-					licenseKey=""
+					licenseKey="mszc%eN^z5"
 					navigation
 					menu="#nav-menu"
 					anchors={anchors}
