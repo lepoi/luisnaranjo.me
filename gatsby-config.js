@@ -2,6 +2,7 @@ module.exports = {
 	plugins: [
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-sass',
+		'gatsby-transformer-remark',
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
@@ -9,6 +10,11 @@ module.exports = {
 				path: `${__dirname}/src/content`
 			}
 		},
-		'gatsby-transformer-remark'
+		{
+			resolve: 'gatsby-plugin-favicon',
+			options: {
+				logo: './static/favicon.png'
+			}
+		}
 	]
 };
